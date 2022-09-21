@@ -58,6 +58,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+AngularStore is Angular application that allows users to view a list of general products to purchase, add them to a shopping cart, and ultimately complete the checkout process.
 [![My Store][product-screenshot]](https://drive.google.com/file/d/1sJZIp1zwKtSVeZ2vik6EJ5cBUwjkcKjk/view?usp=sharing)
 
 [![cart][cart]](https://drive.google.com/file/d/17Hs6ezDTfbctXjwq0dCJOH6Q-9bl3p1L/view?usp=sharing)
@@ -66,7 +67,8 @@
 
 [![confirmation][confirmation]]
 
-[![submitform][submitform]]
+[![submitform]
+[submitform]]
 
 Currently, this is a fairly basic vesion of the application. We are calling it a pre-alpha release.
 
