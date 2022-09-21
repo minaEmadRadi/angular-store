@@ -1,0 +1,113 @@
+<section class="container mt-5 mb-5">
+  <!-- -->
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-10">
+      <div class="card ">
+        <div class="row">
+
+          <!-- Product image-->
+          <div class="col-md-4">
+            <div class="images text-center">
+              <div> <img id="main-image" src="{{product.url}}" alt="product image for {{product.name}}" width="220" />
+              </div>
+              <div class="thumbnail mt-1"> <img onclick="change_image(this)" src="{{product.url}}" width="70">
+                <img onclick="change_image(this)"
+                  src="https://media.istockphoto.com/vectors/loading-icon-vector-illustration-vector-id1335247217?k=20&m=1335247217&s=612x612&w=0&h=CQFY4NO0j2qc6kf4rTc0wTKYWL-9w5ldu-wF8D4oUBk="
+                  width="70">
+              </div>
+            </div>
+          </div>
+          <!-- Product details-->
+
+          <div class="col-md-8">
+            <div class="product p-4">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">
+                    <button routerLink="/product" class="btn btn-warning text-uppercase mr-2 px-4"
+                      style="align-content:space-evenly">Back to
+                      products list</button> </span> </div> <i class="fa fa-shopping-cart text-muted"></i>
+              </div>
+              <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand"></span>
+                <h5 class="text-uppercase">{{product.name}}</h5>
+                <div class="price d-flex flex-row align-items-center"> <span
+                    class="act-price">${{product.price.toFixed(2)}}</span>
+                  <div class="ml-2"> <small class="dis-price">${{product.price.toFixed(2)}}</small> <span>0% OFF</span>
+                  </div>
+                </div>
+              </div>
+              <p class="about">{{product.description}}</p>
+              <div class="sizes mt-5">
+                <h6 class="text-uppercase">Size</h6> <label class="radio"> <input type="radio" name="size" value="S"
+                    checked> <span>S</span> </label> <label class="radio"> <input type="radio" name="size" value="M">
+                  <span>M</span> </label> <label class="radio"> <input type="radio" name="size" value="L">
+                  <span>L</span> </label> <label class="radio"> <input type="radio" name="size" value="XL">
+                  <span>XL</span> </label> <label class="radio"> <input type="radio" name="size" value="XXL">
+                  <span>XXL</span> </label>
+              </div>
+              <div class="row g-3"><label class="col-auto" for="num">Quantity</label>
+                <select class="form-control col-auto num" [(ngModel)]="amountSelected"
+                  (ngModelChange)="onChange($event)">
+                  <option *ngFor="let option of [1,2,3,4,5,6,7,8,9,10]" [value]="option">{{option}}</option>
+                </select>
+              </div>
+              <div class="cart mt-4 align-items-center"> <button class="btn btn-success text-uppercase mr-2 px-4"
+                  (click)="add(product)">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i
+                  class="fa fa-share-alt text-muted"></i> </div>
+              <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4"
+                  (click)="removeFromCartAction(product)">Remove from cart</button> <i
+                  class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+            </div>
+          </div>
+
+          <!-- <div class="card-body p-4">
+            <div class="text-center">
+              <h5 class="fw-bolder"> {{product.name}} </h5>
+              <p class="description">{{product.description}}</p>
+
+              {{product.price.toFixed(2)}}
+            </div>
+            <div class="text-center"> Quantity:
+              <select class="form-control" [(ngModel)]="amountSelected" (ngModelChange)="onChange($event)">
+                <option *ngFor="let option of [1,2,3,4,5,6,7,8,9,10]" [value]="option">{{option}}</option>
+              </select>
+            </div>
+          </div> -->
+          <!-- <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+            <div class="text-center"><a class="btn btn-outline-dark mt-auto" (click)="add(product)">add to cart</a>
+            </div>
+          </div>
+      <div>
+        <div fxLayout="column" fxLayoutAlign="center center" class="text-center">
+          <button mat-flat-button color="primary" (click)="removeFromCartAction(product)">Remove from cart</button>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center" class="text-center">
+          <button mat-flat-button routerLink="/product" class="back-link" style="align-content:space-evenly">Back to
+            products list</button>
+        </div>
+      </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+      <div class="center">
+
+        <app-product-item [product]="product" (addToCartP)="addToCartP($event)" [amountSelected]="amountSelected">
+          <p class="description">{{product.description}}</p>
+        </app-product-item>
+
+      </div>
+      <div>
+        <div fxLayout="column" fxLayoutAlign="center center" class="text-center">
+          <button mat-flat-button color="primary" (click)="removeFromCartAction(product)">Remove from cart</button>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center" class="text-center">
+          <button mat-flat-button routerLink="/product" class="back-link" style="align-content:space-evenly">Back to
+            products list</button>
+        </div>
+      </div>
+    </div>
+  </div> -->

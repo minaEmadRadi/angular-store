@@ -1,0 +1,30 @@
+<!-- Section-->
+
+<div class="col mb-5">
+  <div class="card  box-shadow h-100  ">
+    <!-- Product image-->
+    <!--(click)="ProductSelectedDetails(product)" routerLink="/productItemDetail"-->
+    <img class="card-img-top" src="{{product.url}}" alt="product image for {{product.name}}"
+      [routerLink]="['/product/id',{ product:product.id }]" />
+    <!-- Product details-->
+    <div class="card-body p-4">
+      <div class="text-center">
+        <!-- Product name-->
+        <h5 class="fw-bolder"> {{product.name}} </h5>
+        <ng-content #description></ng-content>
+
+        <!-- Product price-->
+        {{product.price.toFixed(2)}}
+      </div>
+      <div class="text-center"> Quantity:
+        <select class="form-control" [(ngModel)]="amountSelected" (ngModelChange)="onChange($event)">
+          <option *ngFor="let option of [1,2,3,4,5,6,7,8,9,10]" [value]="option">{{option}}</option>
+        </select>
+      </div>
+    </div>
+    <!-- Product actions-->
+    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+      <div class="text-center"><a class="btn btn-outline-dark mt-auto" (click)="add(product)">add to cart</a></div>
+    </div>
+  </div>
+</div>

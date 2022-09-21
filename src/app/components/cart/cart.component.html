@@ -1,0 +1,246 @@
+<section class="section-content padding-y">
+  <div class="container">
+
+    <div class="row">
+      <main class="col-md-9">
+        <div class="card">
+
+          <table class="table table-borderless table-shopping-cart">
+            <thead class="text-muted">
+              <tr class="small text-uppercase">
+                <th scope="col">Product</th>
+                <th scope="col" width="120">Quantity</th>
+                <th scope="col" width="120">Price</th>
+                <th scope="col" class="text-right" width="200"> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cartItem of cartItems">
+                <td>
+                  <figure class="itemside">
+                    <div class="aside"><img src="{{cartItem.url}}" class="img-sm"></div>
+                    <figcaption>
+                      <a [routerLink]="['/product/id',{ product:cartItem.id }]" class="title text-dark">
+                        {{cartItem.description}}</a>
+                      <p class="text-muted small "> {{cartItem.name}} </p>
+                    </figcaption>
+                  </figure>
+                </td>
+                <td>
+                  <input type="number" min="1" max="10" class="form-control text-center" value="cartItem.amount"
+                    autocomplete="off" [ngModel]="cartItem.amount" (ngModelChange)="onChangeAmount(cartItem,$event) ">
+                </td>
+                <td>
+                  <div class="price-wrap">
+                    <var class="price">{{cartItem.price.toFixed(2)}}</var> <br />
+                    <small class="text-muted"> ${{cartItem.price.toFixed(2)}} each </small>
+                  </div> <!-- price-wrap .// -->
+                </td>
+                <td class="text-right">
+                  <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light mr-2"
+                    data-toggle="tooltip"> <i class="fa fa-heart"></i></a>
+                  <a class="btn btn-light" (click)="removeFromCartAction(cartItem)"> Remove</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="card-body border-top">
+            <a href="#" class="btn btn-warning"> <i class="fa fa-chevron-left "></i> Continue shopping </a>
+            <a href="#" class="btn btn-danger" (click)="delete()"> <i class="fa fa-chevron-left"></i> Clear Cart </a>
+          </div>
+
+        </div> <!-- card.// -->
+
+        <div class="alert alert-success mt-3">
+          <p class="icontext"><i class="icon text-success fa fa-truck"></i> Free Delivery within 1-2 weeks</p>
+        </div>
+
+      </main> <!-- col.// -->
+
+      <aside class="col-md-3">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+
+          <mat-form-field class="form-element" appearance="fill">
+            <input matInput placeholder="FullName" formControlName="FullName" [(ngModel)]="fullName" minlength="3"
+              maxlength="32">
+            <mat-error *ngIf="!formGroup.controls['FullName'].valid && formGroup.controls['FullName'].touched">
+              Full Name Required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-element" appearance="fill">
+            <input [(ngModel)]="address" matInput placeholder="Adress" formControlName="Adress" minlength="6"
+              maxlength="32">
+            <mat-error *ngIf="!formGroup.controls['Adress'].valid && formGroup.controls['Adress'].touched">
+              Adress rquiered
+            </mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field class="form-element" appearance="fill">
+            <input type="text" [(ngModel)]="creditCardNumber" (ngModelChange)="onChangeForm($event)" matInput
+              placeholder="CardNumber" formControlName="CardNumber" minlength="16" maxlength="16" numbersOnly>
+            <mat-error *ngIf="!formGroup.controls['CardNumber'].valid && formGroup.controls['CardNumber'].touched">
+              number is requiered
+            </mat-error>
+          </mat-form-field>
+
+          <div class="card mb-3">
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label>Have coupon?</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="" placeholder="Coupon code">
+                    <span class="input-group-append">
+                      <button class="btn btn-primary">Apply</button>
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <dl class="dlist-align">
+                <dt>Total price:</dt>
+                <dd class="text-right">USD 0</dd>
+              </dl>
+              <dl class="dlist-align">
+                <dt>Discount:</dt>
+                <dd class="text-right">USD 0</dd>
+              </dl>
+              <dl class="dlist-align">
+                <dt>Total:</dt>
+                <dd class="text-right  h5"><strong>${{totalAmount.toFixed(2)}}</strong></dd>
+              </dl>
+              <hr>
+              <p class="text-center mb-3">
+                <img src="../assets/payments.png" alt="payment methods">
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="form-element">
+            <button mat-raised-button color="primary" type="submit"
+              class="btn btn-primary justify-content-center button" (click)="submitCartItems()"
+              [disabled]="!formGroup.valid" routerLink="/Confirmation"> Make Purchase </button>
+          </div>
+
+
+        </form>
+      </aside>
+    </div>
+
+  </div> <!-- container .//  -->
+</section>
+
+<!-- <aside class="col-md-3">
+          <div class="card mb-3">
+              <div class="card-body">
+              <form>
+                  <div class="form-group">
+                      <label>Have coupon?</label>
+                      <div class="input-group">
+                          <input type="text" class="form-control" name="" placeholder="Coupon code">
+                          <span class="input-group-append"> 
+                              <button class="btn btn-primary">Apply</button>
+                          </span>
+                      </div>
+                  </div>
+              </form>
+              </div> 
+          </div>  
+          <div class="card">
+              <div class="card-body">
+                      <dl class="dlist-align">
+                        <dt>Total price:</dt>
+                        <dd class="text-right">USD 0</dd>
+                      </dl>
+                      <dl class="dlist-align">
+                        <dt>Discount:</dt>
+                        <dd class="text-right">USD 0</dd>
+                      </dl>
+                      <dl class="dlist-align">
+                        <dt>Total:</dt>
+                        <dd class="text-right  h5"><strong>${{totalAmount.toFixed(2)}}</strong></dd>
+                      </dl>
+                      <hr>
+                      <p class="text-center mb-3">
+                          <img src="assets/images/misc/payments.png" height="26">
+                      </p>
+                     
+              </div> 
+              
+          </div>  
+          
+      </aside>  -->
+
+<!-- /////////////////////////////////////////////////////////////////////////////// -->
+<!-- <div fxLayout="row" fxLayoutAlign="center start" class="cart-details">
+  <div fxLayout="column" fxLayoutAlign="start start" fxFlex="50" fxLayoutGap="2rem" class="card">
+    <div *ngFor="let cartItem of cartItems">
+
+      <div class="card-A">
+
+        <div class="imgCard" fxLayout="column">
+          <img src="{{cartItem.url}}" alt="product image for {{cartItem.name}}" />
+        </div>
+
+        <div>
+          <h4 class="title">
+            {{cartItem.name}}
+          </h4>
+          <h5>
+            {{cartItem.price.toFixed(2)}}
+          </h5>
+          <input type="number" min="1" max="10" class="form-control text-center" value="cartItem.amount"
+            autocomplete="off" [ngModel]="cartItem.amount" (ngModelChange)="onChangeAmount(cartItem,$event) ">
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-more" (click)="delete()">Clear Cart</button>
+  <label>Total: <span>${{totalAmount.toFixed(2)}}</span></label>
+  <div fxLayout="column" fxFlex="30" fxLayoutGap="1rem">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+
+      <mat-form-field class="form-element" appearance="fill">
+        <input matInput placeholder="FullName" formControlName="FullName" [(ngModel)]="fullName" minlength="3"
+          maxlength="32">
+        <mat-error *ngIf="!formGroup.controls['FullName'].valid && formGroup.controls['FullName'].touched">
+          Full Name Required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-element" appearance="fill">
+        <input [(ngModel)]="address" matInput placeholder="Adress" formControlName="Adress" minlength="6"
+          maxlength="32">
+        <mat-error *ngIf="!formGroup.controls['Adress'].valid && formGroup.controls['Adress'].touched">
+          Adress rquiered
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="form-element" appearance="fill">
+        <input type="text" [(ngModel)]="creditCardNumber" (ngModelChange)="onChangeForm($event)" matInput
+          placeholder="CardNumber" formControlName="CardNumber" minlength="16" maxlength="16" numbersOnly>
+        <mat-error *ngIf="!formGroup.controls['CardNumber'].valid && formGroup.controls['CardNumber'].touched">
+          number is requiered
+        </mat-error>
+      </mat-form-field>
+
+
+
+      <div class="form-element">
+        <button mat-raised-button color="primary" type="submit" class="button" (click)="submitCartItems()"
+          [disabled]="!formGroup.valid" routerLink="/Confirmation">Submit Form</button>
+      </div>
+
+    </form>
+  </div>
+</div> -->
