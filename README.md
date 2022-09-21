@@ -65,10 +65,9 @@ AngularStore is Angular application that allows users to view a list of general 
 
 [![product-details][product-details]](https://drive.google.com/file/d/1yCtiDZcVU5afRU0inTYxo_oHCs91nA3T/view?usp=sharing)
 
-[![confirmation][confirmation]]
+![confirmation][confirmation]
 
-[![submitform]
-[submitform]]
+![submitform][submitform]
 
 Currently, this is a fairly basic vesion of the application. We are calling it a pre-alpha release.
 
