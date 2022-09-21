@@ -59,55 +59,9 @@
             </div>
           </div>
 
-          <!-- <div class="card-body p-4">
-            <div class="text-center">
-              <h5 class="fw-bolder"> {{product.name}} </h5>
-              <p class="description">{{product.description}}</p>
 
-              {{product.price.toFixed(2)}}
-            </div>
-            <div class="text-center"> Quantity:
-              <select class="form-control" [(ngModel)]="amountSelected" (ngModelChange)="onChange($event)">
-                <option *ngFor="let option of [1,2,3,4,5,6,7,8,9,10]" [value]="option">{{option}}</option>
-              </select>
-            </div>
-          </div> -->
-          <!-- <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center"><a class="btn btn-outline-dark mt-auto" (click)="add(product)">add to cart</a>
-            </div>
-          </div>
-      <div>
-        <div fxLayout="column" fxLayoutAlign="center center" class="text-center">
-          <button mat-flat-button color="primary" (click)="removeFromCartAction(product)">Remove from cart</button>
-        </div>
-        <div fxLayout="column" fxLayoutAlign="center center" class="text-center">
-          <button mat-flat-button routerLink="/product" class="back-link" style="align-content:space-evenly">Back to
-            products list</button>
-        </div>
-      </div> -->
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- <div class="container px-4 px-lg-5 mt-5">
-    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-      <div class="center">
-
-        <app-product-item [product]="product" (addToCartP)="addToCartP($event)" [amountSelected]="amountSelected">
-          <p class="description">{{product.description}}</p>
-        </app-product-item>
-
-      </div>
-      <div>
-        <div fxLayout="column" fxLayoutAlign="center center" class="text-center">
-          <button mat-flat-button color="primary" (click)="removeFromCartAction(product)">Remove from cart</button>
-        </div>
-        <div fxLayout="column" fxLayoutAlign="center center" class="text-center">
-          <button mat-flat-button routerLink="/product" class="back-link" style="align-content:space-evenly">Back to
-            products list</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
