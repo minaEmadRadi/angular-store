@@ -64,6 +64,10 @@
 
 [![product-details][product-details]](https://drive.google.com/file/d/1yCtiDZcVU5afRU0inTYxo_oHCs91nA3T/view?usp=sharing)
 
+[![confirmation][confirmation]]
+
+[![submitform][submitform]]
+
 Currently, this is a fairly basic vesion of the application. We are calling it a pre-alpha release.
 
 ❤️🔥🔥🔥🔥🔥🔥🔥🔥
@@ -182,6 +186,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [product-screenshot]: src/img/ProductList.png
 [product-details]: src/img/ProductDetails.png
 [cart]: src/img/CartItems.png
+[confirmation]: src/img/confirmationSuccess.png
+[submitform]: src/img/SubmitForm.png
 [Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
 [Angular-url]: https://angular.io/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
