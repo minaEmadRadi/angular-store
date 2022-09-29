@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ComponentsComponent } from './components/components.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { ProductItemDetailComponent } from './components/product-item-detail/product-item-detail.component';
@@ -13,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {  ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NumberDirective } from './components/cart/numbers-only.directive';
@@ -24,7 +23,6 @@ import { AboutComponent } from './components/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ComponentsComponent,
     CartComponent,
     ConfirmationComponent,
     ProductItemDetailComponent,
@@ -41,7 +39,7 @@ import { AboutComponent } from './components/about/about.component';
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}), 
+    ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
     BrowserAnimationsModule,
     NgbModule
 

@@ -37,9 +37,9 @@ export class CartComponent implements OnInit {
     this.recalculateTotalAmount();
   }
 
-  onSubmit(num: any) { }
-  SetValue(event: any) { }
-  onChangeForm(event: any) { }
+  // onSubmit(num: any) { }
+  // SetValue(event: any) { }
+  // onChangeForm(event: any) { }
 
 
   recalculateTotalAmount(): void {

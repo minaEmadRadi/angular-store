@@ -10,7 +10,7 @@ import { CartService } from 'src/app/components/services/cart.service';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
-  
+
   @Input() product: Product = new Product;
   @Output() addToCartP: EventEmitter<Product> = new EventEmitter;
   @Input() amountSelected: number = 1;
